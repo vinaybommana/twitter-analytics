@@ -26,3 +26,5 @@ python3 no_of_tweets_column.py large
 ```bash
 pip3 install -r requirements.txt
 ```
+
+* for machines with only a single python installed we can use `pip` directly instead of pip3
