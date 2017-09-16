@@ -10,7 +10,6 @@ APP_KEY = 'BlHVe4NazxtdbPgx386iUV6MZ'
 APP_SECRET = 'f2Hhq39zzPeIaU3mQZgqki2he4ncTXEE8dOglTJtDOl193LK3l'
 
 auth = tweepy.AppAuthHandler(APP_KEY, APP_SECRET)
-
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 if (not api):
@@ -34,6 +33,7 @@ def read_file(input_file):
 
 
 def main():
+    # only a single main function is not cool
     read_file(sys.argv[1])
     for value in tags:
         value = value.strip()
@@ -91,10 +91,14 @@ def main():
                     Tweet = jsonpickle.encode(tweet._json, unpicklable=False)
                     Tweet = jsonpickle.decode(Tweet)
                     user_id_str = Tweet['user']['id_str']
+                    # using the delimiter --- for no reason except
+                    # for delimiting
                     list_of_names.append(Tweet['user']['screen_name'] + "---" +
                                          Tweet['user']['name'] + "---" +
                                          user_id_str)
                     # print(str(user_id_str))
+                    # csv_file is converting large ids to E^10 values
+                    # changed the output to text file
                     # csv_file.writerow([
                     #     Tweet['user']['name'],
                     #     Tweet['user']['screen_name'],
@@ -110,7 +114,7 @@ def main():
                 break
 
         with open("large.txt", "w") as o:
-            o.write("Name" + "\t\t" + "screen_name" + "\t\t" + "user_id\n")
+            o.write("Name" + "\t\t\t" + "screen_name" + "\t\t" + "user_id\n")
             for line in list_of_names:
                 o.write(line + "\n")
 
