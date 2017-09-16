@@ -1,0 +1,8 @@
+twitter.get_application_rate_limit_status()
+
+returns a json file.
+figure out what it is doing and I think you will find 
+why there is so much data in the output file.
+
+
+datetime.strptime()

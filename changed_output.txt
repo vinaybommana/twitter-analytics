@@ -1,5 +1,5 @@
-Name		screen_name		user_idCoach
-KVJacobs---Kristin V Jacobs---4064654807
+Name		screen_name		user_id
+CoachKVJacobs---Kristin V Jacobs---4064654807
 GaineyCarlton---carlton gainey---2570736798
 JAK_Sports---JAK Sports---904875622375313409
 BSChamberTX---Big Spring Chamber---2828094370
