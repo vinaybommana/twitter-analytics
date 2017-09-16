@@ -1,0 +1,6 @@
+jsonpickle==0.9.5
+matplotlib==2.0.2
+numpy==1.13.1
+oauthlib==1.0.3
+pipreqs==0.4.9
+tweepy==3.5.0
