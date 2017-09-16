@@ -21,3 +21,8 @@ python3 no_of_tweets_column.py large
 * The `top_4.txt` has the top 4 persons who has tweeted most tweeted most
 * The `added_column.txt` has the list of all the persons who has tweeted
   in the order of their tweet count.
+
+### for downloading required libraries
+```bash
+pip3 install -r requirements.txt
+```
