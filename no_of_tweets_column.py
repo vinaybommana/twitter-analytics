@@ -1,3 +1,4 @@
+# import codecs
 import fileinput
 import sys
 from collections import Counter
@@ -7,7 +8,7 @@ for_top_4 = []
 
 
 def read_file(input_file):
-    with fileinput.input(files=str(input_file)) as f:
+    with fileinput.input(files=str(input_file), encoding="utf-8") as f:
         for line in f:
             list_of_names.append(line)
 

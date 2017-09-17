@@ -13,8 +13,8 @@ python3 main_scraper_twitter.py input
 * This will produce the `large.txt` file
 
 ### for obtaining the no of tweet count
-```python3
-python3 no_of_tweets_column.py large
+```bash
+python3 no_of_tweets_column.py large.txt
 ```
 
 * This will produce `top_4.txt` and `added_column.txt`
@@ -27,4 +27,4 @@ python3 no_of_tweets_column.py large
 pip3 install -r requirements.txt
 ```
 
-* for machines with only a single python installed we can use `pip` directly instead of pip3
+* for machines with only a single python installed we can use `pip` directly instead of `pip3`
