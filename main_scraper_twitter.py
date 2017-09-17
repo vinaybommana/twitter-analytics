@@ -4,6 +4,7 @@ import jsonpickle
 import fileinput
 from datetime import datetime
 import io
+import codecs
 # import csv
 # import os
 # Replace the API_KEY and API_SECRET with your application's key and secret.
@@ -20,7 +21,7 @@ if (not api):
 # csv_file = csv.writer(open("output.csv", "w"))
 # csv_file.writerow(["Name", "Screen Name", "Id", "Friends Count"])
 # this is what we're searching for
-maxTweets = 1000000
+maxTweets = 10
 # Some arbitrary large number
 tweetsPerQry = 100
 list_of_names = []
@@ -114,9 +115,10 @@ def main():
                 print("some error : " + str(e))
                 break
 
-        with io.open("large.txt", "w", encoding="utf-8") as o:
+        with codecs.open("large.txt", "w", "utf-8") as o:
             o.write("Name" + "\t\t\t" + "screen_name" + "\t\t" + "user_id\n")
             for line in list_of_names:
+                # print(type(line))
                 o.write(line + "\n")
 
     print ("Downloaded {0} tweets, Saved to {1}".format(tweetCount,
