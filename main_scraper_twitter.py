@@ -3,6 +3,7 @@ import sys
 import jsonpickle
 import fileinput
 from datetime import datetime
+import io
 # import csv
 # import os
 # Replace the API_KEY and API_SECRET with your application's key and secret.
@@ -113,7 +114,7 @@ def main():
                 print("some error : " + str(e))
                 break
 
-        with open("large.txt", "w") as o:
+        with io.open("large.txt", "w", encoding="utf-8") as o:
             o.write("Name" + "\t\t\t" + "screen_name" + "\t\t" + "user_id\n")
             for line in list_of_names:
                 o.write(line + "\n")
