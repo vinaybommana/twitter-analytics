@@ -21,11 +21,13 @@ if (not api):
 # csv_file = csv.writer(open("output.csv", "w"))
 # csv_file.writerow(["Name", "Screen Name", "Id", "Friends Count"])
 # this is what we're searching for
-maxTweets = 100000
+maxTweets = 12000
 # Some arbitrary large number
 tweetsPerQry = 100
 list_of_names = []
 tags = []
+tweets_text = []
+user_ids = []
 
 
 def read_file(input_file):
@@ -92,12 +94,14 @@ def main():
                     # print(tweet['user']['name'])
                     Tweet = jsonpickle.encode(tweet._json, unpicklable=False)
                     Tweet = jsonpickle.decode(Tweet)
+                    tweets_text.append(Tweet['text'])
                     user_id_str = Tweet['user']['id_str']
+                    user_ids.append(user_id_str)
                     # using the delimiter --- for no reason except
                     # for delimiting
                     list_of_names.append(Tweet['user']['screen_name'] + "---" +
                                          Tweet['user']['name'] + "---" +
-                                         user_id_str)
+                                         user_id_str + "---" + Tweet['text'])
                     # print(str(user_id_str))
                     # csv_file is converting large ids to E^10 values
                     # changed the output to text file
@@ -121,6 +125,9 @@ def main():
                 for line in list_of_names:
                     # print(type(line))
                     o.write(line + "\n")
+
+    # users_and_their_tweets = dict(zip(user_ids, tweets_text))
+    # print(users_and_their_tweets)
 
     print ("Downloaded {0} tweets, Saved to {1}".format(tweetCount,
                                                         "large.txt"))
