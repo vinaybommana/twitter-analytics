@@ -15,7 +15,7 @@ auth = tweepy.AppAuthHandler(APP_KEY, APP_SECRET)
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 if (not api):
-    print ("Can't Authenticate")
+    print("Can't Authenticate")
     sys.exit(-1)
 
 # csv_file = csv.writer(open("output.csv", "w"))
@@ -129,7 +129,7 @@ def main():
     # users_and_their_tweets = dict(zip(user_ids, tweets_text))
     # print(users_and_their_tweets)
 
-    print ("Downloaded {0} tweets, Saved to {1}".format(tweetCount,
+    print("Downloaded {0} tweets, Saved to {1}".format(tweetCount,
                                                         "large.txt"))
 
 
