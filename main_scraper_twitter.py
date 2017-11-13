@@ -115,7 +115,7 @@ def main():
                 print("some error : " + str(e))
                 break
 
-            with codecs.open("large.txt", "w", "utf-8") as o:
+            with codecs.open("problem_large.txt", "w", "utf-8") as o:
                 o.write("Name" + "\t\t\t" +
                         "screen_name" + "\t\t" + "user_id\n")
                 for line in list_of_names:
@@ -123,7 +123,7 @@ def main():
                     o.write(line + "\n")
 
     print ("Downloaded {0} tweets, Saved to {1}".format(tweetCount,
-                                                        "large.txt"))
+                                                        "problem_large.txt"))
 
 
 if __name__ == '__main__':

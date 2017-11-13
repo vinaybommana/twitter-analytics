@@ -21,7 +21,7 @@ if (not api):
 # csv_file = csv.writer(open("output.csv", "w"))
 # csv_file.writerow(["Name", "Screen Name", "Id", "Friends Count"])
 # this is what we're searching for
-maxTweets = 12000
+maxTweets = 1000000
 # Some arbitrary large number
 tweetsPerQry = 100
 list_of_names = []
@@ -119,7 +119,7 @@ def main():
                 print("some error : " + str(e))
                 break
 
-            with codecs.open("large.txt", "w", "utf-8") as o:
+            with codecs.open("problem_large.txt", "w", "utf-8") as o:
                 o.write("Name" + "\t\t\t" +
                         "screen_name" + "\t\t" + "user_id\n")
                 for line in list_of_names:
@@ -130,7 +130,7 @@ def main():
     # print(users_and_their_tweets)
 
     print("Downloaded {0} tweets, Saved to {1}".format(tweetCount,
-                                                        "large.txt"))
+                                                       "problem_large.txt"))
 
 
 if __name__ == '__main__':
