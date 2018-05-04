@@ -15,7 +15,7 @@ auth = tweepy.AppAuthHandler(APP_KEY, APP_SECRET)
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 if (not api):
-    print ("Can't Authenticate")
+    print("Can't Authenticate")
     sys.exit(-1)
 
 # csv_file = csv.writer(open("output.csv", "w"))
