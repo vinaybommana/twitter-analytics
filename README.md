@@ -12,12 +12,13 @@ pip install tweepy
 pip install jsonpickle
 ```
 
-### for step one
+## for step one
 
-## format for the step one
+### format for the step one
 
 |serial_number | screen_name| user_id| tweet_id| retweet_count| date| tweet|
 | ----         |  ----------| -------| --------| --------     | --- | ---- |
+|              |            |        |         |              |     |      |
 
 ```python3
 python3 extract_tweets.py input
