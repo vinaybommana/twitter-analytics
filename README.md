@@ -6,11 +6,12 @@ twitter scrapers for analysis
 * `tweepy`
 * `jsonpickle`
 
+### for downloading required libraries
 ```bash
-# use pip3 if pip exists for python2
-pip install tweepy
-pip install jsonpickle
+pip3 install -r requirements.txt
 ```
+
+* for machines with only a single python installed we can use `pip` directly instead of `pip3`
 
 ## for step one
 
@@ -52,12 +53,6 @@ python3 no_of_tweets_column.py large.txt
 * The `added_column.txt` has the list of all the persons who has tweeted
   in the order of their tweet count.
 
-### for downloading required libraries
-```bash
-pip3 install -r requirements.txt
-```
-
-* for machines with only a single python installed we can use `pip` directly instead of `pip3`
 
 ### Problem 1
 * scraping large number of users from twitter
