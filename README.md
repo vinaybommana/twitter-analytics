@@ -1,6 +1,35 @@
 # twitter-analytics
 twitter scrapers for analysis
 
+* for running the scripts given in the steps following libraries are used.
+
+* `tweepy`
+* `jsonpickle`
+
+```bash
+# use pip3 if pip exists for python2
+pip install tweepy
+pip install jsonpickle
+```
+
+### for step one
+
+## format for the step one
+
+|serial_number | screen_name| user_id| tweet_id| retweet_count| date| tweet|
+|              |            |        |         |              |     |      |
+
+```python3
+python3 extract_tweets.py input
+```
+* This will download the tweets in `problem_large.txt` file.
+* Then run the following command.
+
+```python3
+python3 txt_to_csv.py
+```
+* This will produce `output.csv` file.
+
 ### Running the scraper
 ```python3
 python3 main_scraper_twitter.py input
