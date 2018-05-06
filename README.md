@@ -32,6 +32,22 @@ python3 txt_to_csv.py
 ```
 * This will produce `output.csv` file.
 
+## for step two
+
+Step 2:  from the step 1 output observe( 5th column of the table) i.e number of re tweets obtained for each  tweet .
+If number of re tweets obtained for the given tweet is  0 then discard the tweet other wise print the tweet in the above format.
+
+Output :  print only the tweets which got re tweets and discard the tweets with no re tweets
+
+* The step to do is copy `output.csv` into this `step_2` folder.
+
+```python3
+python3 remove_zero_tweets.py
+```
+
+* The output will be a `step_two_output.csv` file
+* This will contain the tweets with more than zero retweets.
+
 ### Running the scraper
 ```python3
 python3 main_scraper_twitter.py input
