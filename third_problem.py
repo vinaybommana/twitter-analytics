@@ -20,7 +20,6 @@ if (not api):
 
 # csv_file = csv.writer(open("output.csv", "w"))
 # csv_file.writerow(["Name", "Screen Name", "Id", "Friends Count"])
-# this is what we're searching for
 maxTweets = 1000000
 # Some arbitrary large number
 tweetsPerQry = 100

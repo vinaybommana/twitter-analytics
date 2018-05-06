@@ -1,0 +1,5 @@
+Step 2:
+from the step 1 output observe( 5th column of the table) i.e number of re tweets obtained for each  tweet .
+If number of re tweets obtained for the given tweet is  0 then discard the tweet other wise print the tweet in the above format.
+
+Output :  print only the tweets which got re tweets and discard the tweets with no re tweets
