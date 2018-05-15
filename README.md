@@ -49,7 +49,7 @@ python3 remove_zero_tweets.py
 
 ## for step three
 
-Step 3: Find out number of users who posted those tweets in step 2, because one user may post multiple tweets.
+Step 3: Find out number of users who has been tweeted those tweets in step 2, because one user may post multiple tweets.
 
 Input: output of step 2
 
