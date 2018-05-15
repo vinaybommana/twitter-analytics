@@ -59,6 +59,19 @@ Output:
 | ----         |  ----------        | -------| --------                             |
 |              |                    |        |                                      |
 
+The folder `step_3` should contain `step_two_output.csv`
+
+```bash
+mkdir step_3
+cd step_3
+cp ~/twitter-analytics/step2/step_two_output.csv .
+```
+run the following python code
+
+```python3
+python3 unique_user_identifier.py
+```
+
 
 
 ### Running the scraper
