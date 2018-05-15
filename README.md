@@ -44,9 +44,23 @@ Output :  print only the tweets which got re tweets and discard the tweets with 
 ```python3
 python3 remove_zero_tweets.py
 ```
-
 * The output will be a `step_two_output.csv` file
 * This will contain the tweets with more than zero retweets.
+
+## for step three
+
+Step 3: Find out number of users who posted those tweets in step 2, because one user may post multiple tweets.
+
+Input: output of step 2
+
+Output:
+
+|serial_number | user_name  | user_id| #tweets (no of tweets posted by user)|
+|              |  @mention  |        |                                      |
+| ----         |  ----------| -------| --------                             |
+|              |            |        |                                      |
+
+
 
 ### Running the scraper
 ```python3
