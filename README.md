@@ -55,10 +55,9 @@ Input: output of step 2
 
 Output:
 
-|serial_number | user_name  | user_id| #tweets (no of tweets posted by user)|
-|              |  @mention  |        |                                      |
-| ----         |  ----------| -------| --------                             |
-|              |            |        |                                      |
+|serial_number | user_name @mention | user_id| #tweets (no of tweets posted by user)|
+| ----         |  ----------        | -------| --------                             |
+|              |                    |        |                                      |
 
 
 
