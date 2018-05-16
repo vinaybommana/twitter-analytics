@@ -78,6 +78,7 @@ Influential users from the above table, find out no of retweets obtained for eac
 and calculate weight or user rank.
 
 Input: Step 2 output
+
 output format: 
 
 |serial_number | user_name @mention | user_id| #tweets (no of tweets posted by user)| # retweets | log(#retweets)|
