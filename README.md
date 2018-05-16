@@ -85,6 +85,18 @@ output format:
 | ----         |  ----------        | -------| --------                             | ----       | -----         |
 |              |                    |        |                                      |            |               |
 
+
+```bash
+mkdir step_4
+cd step_4
+cp ~/twitter-analytics/step2/step_two_output.csv .
+cp ~/twitter-analytics/step3/step_three_output.csv .
+```
+
+```python3
+python3 influential_users.py
+```
+
 ### Running the scraper
 ```python3
 python3 main_scraper_twitter.py input
