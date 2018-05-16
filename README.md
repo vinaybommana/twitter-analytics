@@ -97,6 +97,19 @@ cp ~/twitter-analytics/step3/step_three_output.csv .
 python3 influential_users.py
 ```
 
+## for step five
+from the above table from step four, we've calculated weights of each user, from that pick out those users,
+whose weight > 1.5
+
+Input: step_four_output.csv
+
+Output format:
+
+
+|serial_number | user_name @mention | user_id| #tweets (no of tweets posted by user)| # retweets | weights > 1.5 |
+| ----         |  ----------        | -------| --------                             | ----       | -----         |
+|              |                    |        |                                      |            |               |
+
 ### Running the scraper
 ```python3
 python3 main_scraper_twitter.py input
