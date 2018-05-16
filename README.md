@@ -110,6 +110,17 @@ Output format:
 | ----         |  ----------        | -------| --------                             | ----       | -----         |
 |              |                    |        |                                      |            |               |
 
+
+```bash
+mkdir step_5
+cd step_5
+cp ~/twitter-analytics/step4/step_four_output.csv .
+```
+
+```python3
+python3 weighted_users_seperator.py
+```
+
 ### Running the scraper
 ```python3
 python3 main_scraper_twitter.py input
