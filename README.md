@@ -72,7 +72,17 @@ run the following python code
 python3 unique_user_identifier.py
 ```
 
+## for step four
+All the users who are there in the output of step 3 are not influential users, to find out
+Influential users from the above table, find out no of retweets obtained for each user
+and calculate weight or user rank.
 
+Input: Step 2 output
+output format: 
+
+|serial_number | user_name @mention | user_id| #tweets (no of tweets posted by user)| # retweets | log(#retweets)|
+| ----         |  ----------        | -------| --------                             | ----       | -----         |
+|              |                    |        |                                      |            |               |
 
 ### Running the scraper
 ```python3
