@@ -128,11 +128,12 @@ In step five, 2nd column of the table, count the number of users, # users are ca
 ## for step seven
 For Influential users, calculate global influential score for each user.
 
-\begin{equation}
+$$
 
 Influential score formula = \frac{no of retweets}{no of tweets}
 
-\end{equation}
+$$
+
 
 |serial_number | user_name @mention | user_id| #tweets (no of tweets posted by user)| # retweets | global Inf score|
 | ----         |  ----------        | -------| --------                             | ----       | -----           |
