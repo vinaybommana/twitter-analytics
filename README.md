@@ -121,6 +121,19 @@ cp ~/twitter-analytics/step4/step_four_output.csv .
 python3 weighted_users_seperator.py
 ```
 
+## for step six
+In step five, 2nd column of the table, count the number of users, # users are called as `Influential Users`
+
+
+## for step seven
+For Influential users, calculate global influential score for each user.
+
+Influential score formula = \frac{no of retweets}{no of tweets}
+
+|serial_number | user_name @mention | user_id| #tweets (no of tweets posted by user)| # retweets | global Inf score|
+| ----         |  ----------        | -------| --------                             | ----       | -----           |
+|              |                    |        |                                      |            |                 |
+
 ### Running the scraper
 ```python3
 python3 main_scraper_twitter.py input
