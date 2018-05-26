@@ -136,6 +136,27 @@ For Influential users, calculate global influential score for each user.
 | ----         |  ----------        | -------| --------                             | ----       | -----           |
 |              |                    |        |                                      |            |                 |
 
+
+## for step eight
+write down global influence scores in descending order and give rank to each influential user.
+
+example:
+highest value of influential score = rank 1
+.
+.
+.
+lowest value of influential score = rank n
+
+Input: 
+step seven 6th column
+
+Output format:
+
+| global influential score in descending order |    user name    | global rank  |
+| ---                                          | ---             | ---          |
+|                                              |                 |              |
+
+
 ### Running the scraper
 ```python3
 python3 main_scraper_twitter.py input
