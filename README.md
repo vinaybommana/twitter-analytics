@@ -152,9 +152,9 @@ step seven 6th column
 
 Output format:
 
-| global influential score in descending order |    user name    | global rank  |
-| ---                                          | ---             | ---          |
-|                                              |                 |              |
+| global influential score in descending order |    user name    | global rank x_i |
+| ---                                          | ---             | ---             |
+|                                              |                 |                 |
 
 
 ### Running the scraper
