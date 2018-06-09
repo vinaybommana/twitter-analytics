@@ -64,7 +64,7 @@ The folder `step_3` should contain `step_two_output.csv`
 ```bash
 mkdir step_3
 cd step_3
-cp ~/twitter-analytics/step2/step_two_output.csv .
+cp path/twitter-analytics/step2/step_two_output.csv .
 ```
 run the following python code
 
@@ -89,8 +89,8 @@ output format:
 ```bash
 mkdir step_4
 cd step_4
-cp ~/twitter-analytics/step2/step_two_output.csv .
-cp ~/twitter-analytics/step3/step_three_output.csv .
+cp path/twitter-analytics/step2/step_two_output.csv .
+cp path/twitter-analytics/step3/step_three_output.csv .
 ```
 
 ```python3
@@ -114,7 +114,7 @@ Output format:
 ```bash
 mkdir step_5
 cd step_5
-cp ~/twitter-analytics/step4/step_four_output.csv .
+cp path/twitter-analytics/step4/step_four_output.csv .
 ```
 
 ```python3
@@ -131,6 +131,14 @@ For Influential users, calculate global influential score for each user.
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;Influential%20score%20formula%20=%20\frac{no%20of%20retweets}{no%20of%20tweets}" />
 
+```bash
+mkdir step_7
+cd step_7
+cp path/step_5/step_five_output.csv .
+
+python global_influence_score_calculate.py
+```
+
 
 |serial_number | user_name @mention | user_id| #tweets (no of tweets posted by user)| # retweets | global Inf score|
 | ----         |  ----------        | -------| --------                             | ----       | -----           |
@@ -141,11 +149,19 @@ For Influential users, calculate global influential score for each user.
 write down global influence scores in descending order and give rank to each influential user.
 
 example:
-highest value of influential score = rank 1
+highest value of influential score = rank `1`
 .
 .
 .
-lowest value of influential score = rank n
+lowest value of influential score = rank `n`
+
+```bash
+mkdir step_8
+cd step_8
+cp /path/step_7/step_seven_output.csv .
+
+python rank_assign_inf_score.py
+```
 
 Input:
 step seven 6th column
@@ -162,49 +178,18 @@ Output format:
 * collect tweets of the influential users from the output of step two
 * count no of tweets posted by influential users
 
+```bash
+mkdir step_9
+cd step_9
+cp /path/step_4/step_four_output.csv .
+cp /path/step_8/step_eight_output.csv .
+cp /path/step_2/step_two_output.csv
+
+python tweets_of_influential_users.py
+```
+
 Output format:
 
 |serial_number | screen_name| user_id| tweet_id| retweet_count| tweet|
 | ----         |  ----------| -------| --------| --------     | ---- |
 |              |            |        |         |              |      |
-
-
-
-### Running the scraper
-```python3
-python3 main_scraper_twitter.py input
-```
-
-* this will download the tweets based on the input file
-* we can change the no of tweets that can be scraped.
-* Just change the maxqueries in the `main_scraper_twitter.py`
-* The `main_scraper_twitter.py` uses `tweepy` and `jsonpickle`
-* This will produce the `large.txt` file
-
-### for obtaining the no of tweet count
-```bash
-python3 no_of_tweets_column.py large.txt
-```
-
-* This will produce `top_4.txt` and `added_column.txt`
-* The `top_4.txt` has the top 4 persons who has tweeted most tweeted most
-* The `added_column.txt` has the list of all the persons who has tweeted
-  in the order of their tweet count.
-
-
-### Problem 1
-* scraping large number of users from twitter
-* who tweeted about a particular topic in a specified interval of time
-
-### Problem 2
-* arranging the users in the order of the number of tweets they made.
-
-### Problem 3
-* finding the users who tweeted the most in a specified interval of time.
-* giving their tweets
-
-```bash
-python3 third_problem_output.py large.txt
-```
-
-* this will produce a txt file `third_problem.txt`
