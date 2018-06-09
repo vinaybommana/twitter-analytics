@@ -79,7 +79,7 @@ and calculate weight or user rank.
 
 Input: Step 2 output
 
-output format: 
+output format:
 
 |serial_number | user_name @mention | user_id| #tweets (no of tweets posted by user)| # retweets | log(#retweets)|
 | ----         |  ----------        | -------| --------                             | ----       | -----         |
@@ -147,7 +147,7 @@ highest value of influential score = rank 1
 .
 lowest value of influential score = rank n
 
-Input: 
+Input:
 step seven 6th column
 
 Output format:
@@ -155,6 +155,19 @@ Output format:
 | global influential score in descending order |    user name    | global rank x_i |
 | ---                                          | ---             | ---             |
 |                                              |                 |                 |
+
+
+## for step nine
+
+* collect tweets of the influential users from the output of step two
+* count no of tweets posted by influential users
+
+Output format:
+
+|serial_number | screen_name| user_id| tweet_id| retweet_count| tweet|
+| ----         |  ----------| -------| --------| --------     | ---- |
+|              |            |        |         |              |      |
+
 
 
 ### Running the scraper
