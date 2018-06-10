@@ -203,15 +203,14 @@ Input : In step nine last column of the table (tweets of influential users)
 
 Output format:
 
-|      | word1 | word2 | .. .. .. | wordn | abs(tvi) |
-| ---  | ---   | ----  |          | ----- | -----    |
-|tweet1|  tv11 | tv12  |          | tv1n  |          |
-|tweet2|  tv21 | tv22  |          | tv2n  |          |
-|.     |   .   |       |          | .     |          |
-|.     |   .   |       |          | .     |          |
-|.     |   .   |       |          | .     |          |
-|.     |   .   |       |          | .     |          |
-
+| tweet   | word 1 | word 2 | ... | word n | abs(tvi) |
+|---------|--------|--------|-----|--------|----------|
+| tweet 1 | tv11   | tv12   | ... | tv1n   |          |
+| tweet 2 | tv21   | tv22   | ... | tv2n   |          |
+| ...     | ...    | ...    | ..  | ...    | ...      |
+| ...     | ...    | ...    | ..  | ...    | ...      |
+| ...     | ...    | ...    | ... | ...    | ...      |
+| ...     | ...    | ...    | ... | ...    | ...      |
 
 where tv11 = tf   x   idf
 tf -- term frequency
