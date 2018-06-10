@@ -193,3 +193,31 @@ Output format:
 |serial_number | screen_name| user_id| tweet_id| retweet_count| tweet|
 | ----         |  ----------| -------| --------| --------     | ---- |
 |              |            |        |         |              |      |
+
+
+## for step Ten
+
+* Convert tweets from textual format into numeric format by finding Tf - idf scores
+
+Input : In step nine last column of the table (tweets of influential users)
+
+Output format:
+
+|      | word1 | word2 | .. .. .. | wordn | abs(tvi) |
+| ---  | ---   | ----  |          | ----- | -----    |
+|tweet1|  tv11 | tv12  |          | tv1n  |          |
+|tweet2|  tv21 | tv22  |          | tv2n  |          |
+|.     |   .   |       |          | .     |          |
+|.     |   .   |       |          | .     |          |
+|.     |   .   |       |          | .     |          |
+|.     |   .   |       |          | .     |          |
+
+
+where tv11 = tf   x   idf
+tf -- term frequency
+idf -- inverse document frequecy
+
+Term frequency Tf = number of times the word occurs in the tweet
+Inverse document frequency =
+
+<img src="https://latex.codecogs.com/gif.latex?Inverse&space;document&space;frequency&space;=&space;log(\frac{tweets&space;containing&space;the&space;word&space;i}{total&space;number&space;of&space;tweets&space;in&space;total})" title="Inverse document frequency = log(\frac{tweets containing the word i}{total number of tweets in total})" />
