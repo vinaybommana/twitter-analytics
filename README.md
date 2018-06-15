@@ -183,7 +183,7 @@ mkdir step_9
 cd step_9
 cp /path/step_4/step_four_output.csv .
 cp /path/step_8/step_eight_output.csv .
-cp /path/step_2/step_two_output.csv
+cp /path/step_2/step_two_output.csv .
 
 python tweets_of_influential_users.py
 ```
@@ -213,10 +213,11 @@ Output format:
 | ...     | ...    | ...    | ... | ...    | ...      |
 
 where tv11 = tf   x   idf
+
 tf -- term frequency
+
 idf -- inverse document frequecy
 
 Term frequency Tf = number of times the word occurs in the tweet
-Inverse document frequency =
 
 <img src="https://latex.codecogs.com/gif.latex?Inverse&space;document&space;frequency&space;=&space;log(\frac{tweets&space;containing&space;the&space;word&space;i}{total&space;number&space;of&space;tweets&space;in&space;total})" title="Inverse document frequency = log(\frac{tweets containing the word i}{total number of tweets in total})" />
