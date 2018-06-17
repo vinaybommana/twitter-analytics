@@ -21,7 +21,7 @@ if (not api):
 # csv_file = csv.writer(open("output.csv", "w"))
 # csv_file.writerow(["Name", "Screen Name", "Id", "Friends Count"])
 # this is what we're searching for
-maxTweets = 10000000
+maxTweets = 1000
 # Some arbitrary large number
 tweetsPerQry = 100
 list_of_names = []
@@ -109,7 +109,7 @@ def main():
                     # serial_number , screen_name, user_id, tweet_id, retweet_count, date, tweet
 
                     list_of_names.append(str(count) + "---" + Tweet['user']['screen_name'] + "---" +
-                                         user_id_str + "---" + tweet_id + "---" + str(Tweet['retweet_count']) + 
+                                         user_id_str + "---" + tweet_id + "---" + str(Tweet['retweet_count']) +
                                          str("---") + date + str("---") + str(Tweet['text']).rstrip('\n') + "\n")
 
                     # print(str(user_id_str))
