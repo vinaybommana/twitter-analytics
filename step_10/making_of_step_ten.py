@@ -1,4 +1,3 @@
-# step 10
 import csv
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
