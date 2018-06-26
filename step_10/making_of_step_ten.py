@@ -3,6 +3,7 @@ import csv
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.stem import WordNetLemmatizer
+import pandas as pd
 
 
 def read_file():
@@ -63,6 +64,8 @@ def treat_the_tweets(list_of_tweets):
         tweet = [i.replace("?", "") for i in tweet]
         tweet = [i.replace(")", "") for i in tweet]
         tweet = [i.replace("(", "") for i in tweet]
+        tweet = [i.replace("{", "") for i in tweet]
+        tweet = [i.replace("}", "") for i in tweet]
         tweet = [i for i in tweet if "&amp" not in i]
         tweet = [i for i in tweet if "|" not in i]
         tweet = [i for i in tweet if "@" not in i]
@@ -108,6 +111,51 @@ def lemmatize_the_tweets(tweets):
     return lemmatized_tweets
 
 
+# gathering all the tweets
+def tweet_dump(lemmatized_tweets):
+    tweet_dump = list()
+    for tweet in lemmatized_tweets:
+        for i in tweet:
+            tweet_dump.append(i)
+
+    # print(len(tweet_dump))
+    tweet_dump = set(tweet_dump)
+    # print(len(tweet_dump))
+    return tweet_dump
+
+
+# giving the count of word in a list
+def count_the_word(list_of_words, word):
+    return list_of_words.count(word)
+
+
+def count_list(dictionary_of_tweets_and_ids, word):
+    '''
+    returns list of term frequencies for a particular word
+    '''
+    output_list = list()
+    for i in dictionary_of_tweets_and_ids.keys():
+        # print(dictionary_of_tweets_and_ids[i])
+        output_list.append(count_the_word(dictionary_of_tweets_and_ids[i], word))
+
+    return output_list
+
+
+def inverse_document_frequency(word, dictionary_of_tweets_and_ids):
+    '''
+    returns a floating point number of log(tweets containing word / total tweets)
+    '''
+    tweet_number = 0
+    for i in dictionary_of_tweets_and_ids:
+        if word in dictionary_of_tweets_and_ids[i]:
+            tweet_number += 1
+
+    # print(tweet_number)
+    # print(len(dictionary_of_tweets_and_ids.keys()))
+    # inverse document frequency = log(number of tweets containing the word / total)
+    return tweet_number / len(dictionary_of_tweets_and_ids.keys())
+
+
 ninth_rows = list()
 list_of_tweets = list()
 list_of_tweet_ids = list()
@@ -123,9 +171,22 @@ def main():
     stemmed_tweets = stem_the_tweets(stop_words_removed_tweets)
     # lemmatize the tweets
     lemmatized_tweets = lemmatize_the_tweets(stemmed_tweets)
-    for i in lemmatized_tweets:
-        print(i)
-    dict_of_tweets_and_ids = dict(zip(list_of_tweet_ids, treated_tweets))
+    # print(lemmatized_tweets)
+
+    dict_of_tweets_and_ids = dict(zip(list_of_tweet_ids, lemmatized_tweets))
+    all_the_tweets = tweet_dump(lemmatized_tweets)
+    # print(len(all_the_tweets))
+    data_dictionary = {'tweet_id': list_of_tweet_ids}
+    df = pd.DataFrame(data_dictionary)
+    for i in all_the_tweets:
+        if len(i) > 0:
+            idf_score = float(inverse_document_frequency(i, dict_of_tweets_and_ids))
+            # term_df[str(i)] = count_list(dict_of_tweets_and_ids, i)
+            count = count_list(dict_of_tweets_and_ids, i)
+            count = [float(i * idf_score) for i in count]
+            df[str(i)] = count
+
+    df.to_csv('step_10_output.csv')
 
 
 if __name__ == "__main__":
