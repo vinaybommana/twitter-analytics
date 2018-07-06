@@ -17,6 +17,11 @@ def remove_unicode_characters(sentence):
 
 
 def read_input_file():
+    '''
+    input file will be in the format
+    <query_text> <begin_date> <end_date>
+    <query_text> <begin_date> <end_date>
+    '''
     input_details = list()
     with open("input", "r") as o:
         for line in o:
@@ -53,7 +58,7 @@ def strip_unwanted(text):
     return text
 
 
-def seperate_tweets(data):
+def write_tweets_csv(data):
     with codecs.open("step_1_output.csv", "w+", "utf-8") as o:
         o.write("Serial_number" + "," + "User Name" + "," + "Screen_name\t" + "," + "Tweet Id\t\t" + ","
                 "Retweet Count\t" + "," + "Date\t" + "," + "Tweet\n")
@@ -78,7 +83,7 @@ def seperate_tweets(data):
 
 def main():
     extract_tweets()
-    seperate_tweets(read_json_file())
+    write_tweets_csv(read_json_file())
 
 
 if __name__ == "__main__":
