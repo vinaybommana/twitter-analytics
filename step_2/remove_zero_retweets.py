@@ -3,7 +3,7 @@ import codecs
 
 
 def read_csv():
-    with open("output.csv", "r") as c:
+    with open("step_1_output.csv", "r") as c:
         csvreader = csv.reader(c)
         next(csvreader)
         for row in csvreader:
@@ -12,19 +12,22 @@ def read_csv():
 
 def main():
     read_csv()
-    with codecs.open("step_two_output.csv", "w+", "utf-8") as o:
+    # print(len(rows))
+    with codecs.open("step_two_output.csv", "w", "utf-8") as o:
         # serial_number , screen_name, user_id, tweet_id, retweet_count, date, tweet
-        o.write("serial_number\t" + "," + "screen_name\t" + "," + "user_id\t" + "," + "tweet_id\t\t" + ","
-                "retweet_count\t" + "," + "date\t" + "," + "tweet\n")
+        o.write("Serial Number\t" + "," + "User Name\t" + "," + "@mention\t" + "," + "Tweet_id\t\t" + ","
+                "Retweet Count\t" + "," + "Date\t" + "," + "Tweet\n")
+
         for row in rows:
             if row[4] != '0':
                 line = ""
-                for string in row:
+                for string in row[1:]:
                     line += string
                     line += ","
                 line += "\n"
+                # print(line)
                 o.write(line)
-    
+
 
 rows = list()
 if __name__ == "__main__":

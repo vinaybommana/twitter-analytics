@@ -43,8 +43,9 @@ def extract_tweets():
         query_text = i.split()[0]
         begin_date = i.split()[1]
         end_date = i.split()[2]
-        subprocess.call('twitterscraper {} --limit 100000 --lang en -bd {} -ed {} \
-                        --output eng_tweets.json'.format(query_text, begin_date, end_date), shell=True)
+        max_tweets = 200000
+        subprocess.call('twitterscraper {} --limit {} --lang en -bd {} -ed {} \
+                        --output eng_tweets.json'.format(query_text, max_tweets, begin_date, end_date), shell=True)
 
 
 def strip_unwanted(text):
@@ -60,7 +61,7 @@ def strip_unwanted(text):
 
 def write_tweets_csv(data):
     with codecs.open("step_1_output.csv", "w+", "utf-8") as o:
-        o.write("Serial_number" + "," + "User Name" + "," + "Screen_name\t" + "," + "Tweet Id\t\t" + ","
+        o.write("Serial_number" + "," + "User Name" + "," + "@mention\t" + "," + "Tweet Id\t\t" + ","
                 "Retweet Count\t" + "," + "Date\t" + "," + "Tweet\n")
         count = 1
         for tweet in data:
