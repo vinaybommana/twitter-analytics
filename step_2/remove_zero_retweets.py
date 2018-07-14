@@ -15,7 +15,7 @@ def main():
     # print(len(rows))
     with codecs.open("step_two_output.csv", "w", "utf-8") as o:
         # serial_number , screen_name, user_id, tweet_id, retweet_count, date, tweet
-        o.write("Serial Number\t" + "," + "User Name\t" + "," + "@mention\t" + "," + "Tweet_id\t\t" + ","
+        o.write("User Name\t" + "," + "@mention\t" + "," + "Tweet_id\t\t" + ","
                 "Retweet Count\t" + "," + "Date\t" + "," + "Tweet\n")
 
         for row in rows:
