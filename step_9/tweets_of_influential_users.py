@@ -5,52 +5,58 @@ import codecs
 
 
 def read_eighth_output():
+    eighth_rows = list()
     with open("step_eight_output_rank.csv", "r") as e:
         csvreader = csv.reader(e)
         next(csvreader)
         for row in csvreader:
             eighth_rows.append(row)
+    return eighth_rows
 
 
 def read_four_output():
+    fourth_rows = list()
     with open("step_four_output.csv", "r") as f:
         csvreader = csv.reader(f)
         next(csvreader)
         for row in csvreader:
             fourth_rows.append(row)
+    return fourth_rows
 
 
 def read_two_output():
+    second_rows = list()
     with open("step_two_output.csv", "r") as t:
         csvreader = csv.reader(t)
         next(csvreader)
         for row in csvreader:
             second_rows.append(row)
+    return second_rows
 
 
-def list_all_influential_users():
+def list_all_influential_users(eighth_rows):
     for row_8 in eighth_rows:
         user_influential.append(row_8[1])
 
 
-def make_tweet_user_dict():
+def make_tweet_user_dict(second_rows):
     read_two_output()
     for row in second_rows:
         user_tweet_dict[row[1]] = row[6]
 
 
-def make_tweetid_tweet_dict():
+def make_tweetid_tweet_dict(second_rows):
     for row in second_rows:
         tweetid_user_dict[row[1]] = row[3]
 
 
-def make_inf_user_dict():
+def make_inf_user_dict(eighth_rows):
     for row in eighth_rows:
         inf_score_user_dict[row[1]] = row[0]
 
 
 def main():
-    read_eighth_output()
+    eigth read_eighth_output()
     list_all_influential_users()
     read_four_output()
     make_tweet_user_dict()
