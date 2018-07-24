@@ -19,11 +19,9 @@ def main():
                 "No of retweets" + "," + "global influence score\n")
         for row in rows:
             line = str(row[0]) + "," + str(row[1]) + "," + str(row[2]) + "," + \
-                   str(row[3]) + "," + str(row[4]) + "," + str(int(row[4]) / int(row[3])) + "\n"
+                str(row[3]) + "," + str(int(row[3]) / int(row[2])) + "\n"
             o.write(line)
 
 
 if __name__ == "__main__":
     main()
-
-
