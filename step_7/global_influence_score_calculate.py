@@ -3,20 +3,19 @@ import codecs
 
 
 def read_csv():
+    rows = list()
     with open("step_five_output.csv", "r") as c:
         csvreader = csv.reader(c)
         next(csvreader)
         for row in csvreader:
             rows.append(row)
-
-
-rows = list()
+    return rows
 
 
 def main():
-    read_csv()
+    rows = read_csv()
     with codecs.open('step_seven_output.csv', 'w+', 'utf-8') as o:
-        o.write("Serial_number\t" + "," + "screen_name\t" + "," + "user_id\t\t" + "," + "No of Tweets" + "," +
+        o.write("Serial_number\t" + "," + "screen_name\t" + "," + "No of Tweets" + "," +
                 "No of retweets" + "," + "global influence score\n")
         for row in rows:
             line = str(row[0]) + "," + str(row[1]) + "," + str(row[2]) + "," + \
