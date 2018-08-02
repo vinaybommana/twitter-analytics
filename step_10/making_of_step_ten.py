@@ -3,24 +3,32 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 import pandas as pd
+import re
 
 
-def read_file():
-    with open("step_10.1_output.csv", "r") as n:
+def read_file(filename):
+    rows = list()
+    with open(str(filename), "r") as n:
         csvreader = csv.reader(n)
         next(csvreader)
         for row in csvreader:
-            ninth_rows.append(row)
+            rows.append(row)
+    return rows
 
 
 def clean_tweets(list_of_tweets):
     output_list = list()
+    print(len(list_of_tweets))
     for i in list_of_tweets:
         if "RT @" in i:
-            tweet = i.split(":")[1]
+            tweet = re.sub("RT @[A-Za-z0-9:]+\s", "", i)
         else:
             tweet = i
 
+        if "@" in tweet:
+            tweet = re.sub("@[A-Za-z0-9]+\s", "", tweet)
+
+        print(tweet)
         tweet = tweet.strip("…")
         tweet = tweet.replace("…", "")
         tweet = tweet.replace("'", "")
@@ -29,12 +37,12 @@ def clean_tweets(list_of_tweets):
     return output_list
 
 
-def make_list_tweet_ids():
-    return [i[3] for i in ninth_rows]
+def make_list_tweet_ids(ninth_rows):
+    return [i[4] for i in ninth_rows]
 
 
-def make_list_of_tweets():
-    return [i[6] for i in ninth_rows]
+def make_list_of_tweets(ninth_rows):
+    return [i[7] for i in ninth_rows]
 
 
 def treat_the_tweets(list_of_tweets):
@@ -161,9 +169,9 @@ list_of_tweet_ids = list()
 
 
 def main():
-    read_file()
-    list_of_tweets = make_list_of_tweets()
-    list_of_tweet_ids = make_list_tweet_ids()
+    ninth_rows = read_file("step_nine_output.csv")
+    list_of_tweets = make_list_of_tweets(ninth_rows)
+    list_of_tweet_ids = make_list_tweet_ids(ninth_rows)
     list_of_tweets = clean_tweets(list_of_tweets)
     treated_tweets = treat_the_tweets(list_of_tweets)
     stop_words_removed_tweets = remove_stop_words(treated_tweets)
