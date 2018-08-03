@@ -1,7 +1,8 @@
-import csv
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.stem import WordNetLemmatizer
+import csv
+import math
 import pandas as pd
 import re
 
@@ -18,7 +19,6 @@ def read_file(filename):
 
 def clean_tweets(list_of_tweets):
     output_list = list()
-    print(len(list_of_tweets))
     for i in list_of_tweets:
         if "RT @" in i:
             tweet = re.sub("RT @[A-Za-z0-9:]+\s", "", i)
@@ -28,7 +28,6 @@ def clean_tweets(list_of_tweets):
         if "@" in tweet:
             tweet = re.sub("@[A-Za-z0-9]+\s", "", tweet)
 
-        print(tweet)
         tweet = tweet.strip("…")
         tweet = tweet.replace("…", "")
         tweet = tweet.replace("'", "")
@@ -61,6 +60,21 @@ def treat_the_tweets(list_of_tweets):
 
         # removing the https:// link
         tweet = [i for i in tweet if "https://" not in i]
+        tweet = [i for i in tweet if "http" not in i]
+
+        # removing digits from the tweet
+        for i in tweet:
+            if str(i[0]).isdigit():
+                i_position = tweet.index(i)
+                i = re.sub("[0-9]+", "", i)
+                tweet[i_position] = i
+
+        # removing pic.twitter.com/<word>
+        for i in tweet:
+            if "pic.twitter.com" in i:
+                i_position = tweet.index(i)
+                i = re.sub("pic.twitter.com/[A-Za-z0-9]+", "", i)
+                tweet[i_position] = i
 
         # cleaning stuff
         tweet = [i.replace("!", "") for i in tweet]
@@ -160,7 +174,7 @@ def inverse_document_frequency(word, dictionary_of_tweets_and_ids):
     # print(tweet_number)
     # print(len(dictionary_of_tweets_and_ids.keys()))
     # inverse document frequency = log(number of tweets containing the word / total)
-    return tweet_number / len(dictionary_of_tweets_and_ids.keys())
+    return math.log(tweet_number / len(dictionary_of_tweets_and_ids.keys()))
 
 
 ninth_rows = list()
