@@ -209,10 +209,10 @@ def main():
 
     # have to add total tvii score
 
-    # for row in df.itertuples()[1:]:
-    #     for i in row[2:]:
-    #         print(i)
-    #         break
+    for row in df.itertuples():
+        for i in row[2:]:
+            print(i)
+            break
 
     df.to_csv('step_10_output.csv')
 
