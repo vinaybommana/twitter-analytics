@@ -221,3 +221,8 @@ idf -- inverse document frequecy
 Term frequency Tf = number of times the word occurs in the tweet
 
 <img src="https://latex.codecogs.com/gif.latex?Inverse&space;document&space;frequency&space;=&space;log(\frac{tweets&space;containing&space;the&space;word&space;i}{total&space;number&space;of&space;tweets&space;in&space;total})" title="Inverse document frequency = log(\frac{tweets containing the word i}{total number of tweets in total})" />
+
+
+## for step Eleven
+* Apply KMeans clustering to all the tweets.
+* Apply KMeans clustering to 3/5th of the tweets.
