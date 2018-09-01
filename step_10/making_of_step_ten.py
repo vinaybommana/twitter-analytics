@@ -208,11 +208,22 @@ def main():
             df[str(i)] = count
 
     # have to add total tvii score
+    print(df.head())
+    # for index, row in df.iterrows():
+    #     print(df.head())
 
+    total_tvii = list()
     for row in df.itertuples():
-        for i in row[2:]:
-            print(i)
-            break
+        tvii = list(row)
+        tvii = tvii[2:]
+        total = 0
+        for i in tvii:
+            total += i ** 2
+        norm_total = math.sqrt(total)
+        total_tvii.append(norm_total)
+        print(len(total_tvii))
+
+    df["total_tvii_score"] = total_tvii
 
     df.to_csv('step_10_output.csv')
 
