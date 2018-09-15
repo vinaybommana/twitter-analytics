@@ -226,3 +226,15 @@ Term frequency Tf = number of times the word occurs in the tweet
 ## for step Eleven
 * Apply KMeans clustering to all the tweets.
 * Apply KMeans clustering to 3/5th of the tweets.
+
+### steps after clustering:
+
+* for all the tweets
+* for 3/5th of the tweets
+ 
+|cluster_number | # No of tweets|
+| ----          |  ----------   |
+|               |               |
+
+![for_full_tweets](./images/clusters_and_no_tweets_for_full_tweets.png)
+![for_three_fifth_tweets](./images/clusters_and_no_tweets_for_three_fifth_tweets.png)
