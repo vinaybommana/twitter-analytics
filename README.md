@@ -236,5 +236,5 @@ Term frequency Tf = number of times the word occurs in the tweet
 | ----          |  ----------   |
 |               |               |
 
-![for_full_tweets](./images/clusters_and_no_tweets_for_full_tweets.png)
-![for_three_fifth_tweets](./images/clusters_and_no_tweets_for_three_fifth_tweets.png)
+![for_full_tweets](./images/clusters_and_no_tweets_for_full_tweets.png "for full tweets")
+![for_three_fifth_tweets](./images/clusters_and_no_tweets_for_three_fifth_tweets.png "for three fifth of the tweets")
