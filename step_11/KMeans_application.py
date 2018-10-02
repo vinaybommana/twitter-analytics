@@ -73,7 +73,6 @@ def main():
     with open("cluster_num_n_index.json", "w+") as c:
         json.dump(dict_of_cluster_num_n_index, c)
 
-
     # ------------------------------------------------------
     # Three fifth Block
     # ------------------------------------------------------
@@ -107,8 +106,7 @@ def main():
     # and the indices of the data <list_of_words> from kmeans
     with open("cluster_num_n_index_3_5.json", "w+") as f:
         json.dump(dict_of_cluster_num_n_index_3_5, f)
-    
+
 
 if __name__ == "__main__":
     main()
-
