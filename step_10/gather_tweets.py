@@ -1,5 +1,5 @@
 """
-Gather tweets from step_9 output
+Gather tweets from step_9 output step
 seperate the words from tweet
 normalise the tweets
 """

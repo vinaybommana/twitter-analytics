@@ -1,0 +1,3 @@
+* TODO step_10 work on completing clustering
+** some of the work is done
+** gather_tweets.py
