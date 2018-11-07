@@ -8,7 +8,6 @@ write it in the csv file
 """
 
 import csv
-from pprint import pprint
 
 
 class FileReader(object):
@@ -57,7 +56,7 @@ class InfluentialUser(object):
 def make_user_n_tweet(rows):
     user_n_tweets = list()
     for row in rows:
-        user_n_tweets.append((row[1], row[5]))
+        user_n_tweets.append((row[1], row[2], row[5]))
 
     return user_n_tweets
 
@@ -75,13 +74,14 @@ def main():
     print(len(tweet_containing_rows))
     # print(user_n_tweets)
     dict_of_user_n_his_tweets = dict()
-    for user_name, tweet in user_n_tweets:
+    for user_name, tweet_id, tweet in user_n_tweets:
         if user_name in influential_users:
             if user_name not in dict_of_user_n_his_tweets:
-                dict_of_user_n_his_tweets[user_name] = [tweet]
+                dict_of_user_n_his_tweets[user_name] = [str(tweet_id) + "---" + str(tweet)]
             else:
                 tweet_list = dict_of_user_n_his_tweets[user_name]
-                tweet_list.append(tweet)
+                line = str(tweet_id) + "---" + str(tweet)
+                tweet_list.append(line)
                 dict_of_user_n_his_tweets[user_name] = tweet_list
 
     # print(len(dict_of_user_n_his_tweets.keys()))

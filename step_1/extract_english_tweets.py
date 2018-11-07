@@ -30,8 +30,8 @@ def read_input_file():
     return input_details
 
 
-def read_json_file():
-    with open('eng_tweets.json') as o:
+def read_json_file(filename):
+    with open(filename) as o:
         data = json.load(o)
 
     return data
@@ -39,13 +39,16 @@ def read_json_file():
 
 def extract_tweets():
     input_details = read_input_file()
+    input_details = [i.strip() for i in input_details]
+    input_details = [i for i in input_details if len(i) > 0]
     for i in input_details:
-        query_text = i.split()[0]
-        begin_date = i.split()[1]
-        end_date = i.split()[2]
-        max_tweets = 200000
+        query_text = str(i.split()[0]).strip()
+        begin_date = str(i.split()[1]).strip()
+        end_date = str(i.split()[2]).strip()
+        max_tweets = 20000
+
         subprocess.call('twitterscraper {} --limit {} --lang en -bd {} -ed {} \
-                        --output eng_tweets.json'.format(query_text, max_tweets, begin_date, end_date), shell=True)
+                        --output ~/backups/{}_tweets.json'.format(query_text, max_tweets, begin_date, end_date, query_text), shell=True)
 
 
 def strip_unwanted(text):
@@ -59,8 +62,8 @@ def strip_unwanted(text):
     return text
 
 
-def write_tweets_csv(data):
-    with codecs.open("step_1_output.csv", "w+", "utf-8") as o:
+def write_tweets_csv(data, name):
+    with codecs.open(name, "w+", "utf-8") as o:
         o.write("Serial_number" + "," + "User Name" + "," + "@mention\t" + "," + "Tweet Id\t\t" + ","
                 "Retweet Count\t" + "," + "Date\t" + "," + "Tweet\n")
         count = 1
@@ -84,7 +87,10 @@ def write_tweets_csv(data):
 
 def main():
     extract_tweets()
-    write_tweets_csv(read_json_file())
+    write_tweets_csv(read_json_file("sports_tweets.json"), "sports_tweets.csv")
+    write_tweets_csv(read_json_file("health_tweets.json"), "health_tweets.csv")
+    write_tweets_csv(read_json_file("politics_tweets.json"), "politics_tweets.csv")
+
 
 
 if __name__ == "__main__":
