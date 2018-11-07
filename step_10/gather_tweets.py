@@ -190,17 +190,17 @@ class WordLemmatizer(object):
 
     def implement_lemmatizing(self):
         lm = WordNetLemmatizer()
-        return [lm.lemmatize(word) for word in self.tweet_dump] 
+        return [lm.lemmatize(word) for word in self.tweet_dump]
 
 
 def main():
     os.chdir("../step_9")
     reader = FileReader("step_9_output_inf_user_tweets.csv")
-    user_n_tweets = reader.rows
+    user_n_tweets = reader.rows  # user , <tweet_id>--tweet, <tweet_id>--tweet
     dict_of_users = RowSeperater(user_n_tweets).seperate_rows()
     tweet_dump = []
     dict_of_id_words = {}
-    for key, value in dict_of_users.items():
+    for _, value in dict_of_users.items():
         for k, v in value.items():
             words_list = TweetNormalizer(v).words
             words_list = StopWordsRemover(words_list).reduced_words

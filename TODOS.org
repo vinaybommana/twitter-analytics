@@ -1,3 +1,27 @@
 * TODO step_10 work on completing clustering
 ** some of the work is done
 ** gather_tweets.py
+** done upto tweet dump
+** further steps
+in gather_tweets.py we did upto tweet_dump i.e.,
+adding all the words from all the tweets into a list
+Now,
+make data_dictionary:
+    a dictionary with tweet_id as column name 
+    tweet_ids in the column
+| tweet_id |
+|----------|
+| zzzzz    |
+| qqqqqq   |
+| uuuuuuu  |
+
+pandas magic:
+make pandas dataframe
+calculate tf and idf score
+add it to dataframe
+
+
+calculate total_tvii score
+
+write it to csv file
+
